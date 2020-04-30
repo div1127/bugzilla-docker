@@ -24,4 +24,5 @@ docker exec -it bugzilla_web ./checkscript.pl
 2. Now, you should be able to access the Bugzilla at https://localhost:4080/bugzilla
 
    a. Please enter the login credentials which you must have set in the previous step.
+   
    b. After logging in go to Administration>parameters and set base URL and other parameters as deem fit
