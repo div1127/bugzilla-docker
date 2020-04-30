@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bugzilla_web
+    restart: always
+    ports:
+     - 4080:80
+    depends_on:
+     -  db
+  db:
+    image: mysql:5.7
+    container_name: bugzilla_db
+    restart: always
+    ports:
+     - "33060:3306"
+    environment:
+     - MYSQL_ROOT_PASSWORD=fair1234
+     - MYSQL_DATABASE=bugs
+     - MYSQL_USER=bugs
+     - MYSQL_PASSWORD=fair1234
+    volumes:
+     - db-data:/var/lib/mysql
+volumes:
+   db-data:
+     external: false
